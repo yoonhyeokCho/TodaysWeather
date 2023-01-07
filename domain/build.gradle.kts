@@ -1,9 +1,33 @@
 plugins {
-    id 'java-library'
-    id 'org.jetbrains.kotlin.jvm'
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+android {
+    buildFeatures {
+        dataBinding = true
+    }
+    namespace = "com.yangbong.damedame.shared"
+}
+
+dependencies {
+    implementation(project(":domain"))
+    implementation(project(":data"))
+
+    // Android Core
+    implementation(AndroidXDependencies.coreKtx)
+    implementation(AndroidXDependencies.appCompat)
+    implementation(AndroidXDependencies.constraintLayout)
+    implementation(AndroidXDependencies.legacy)
+    implementation(AndroidXDependencies.coroutines)
+    implementation(AndroidXDependencies.splashScreen)
+
+    // Kotlin
+    implementation(KotlinDependencies.kotlin)
+
+    implementation(AndroidXDependencies.coreKtx)
+
+    // Material Design
+    implementation(MaterialDesignDependencies.materialDesign)
 }
