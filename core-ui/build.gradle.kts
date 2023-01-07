@@ -1,40 +1,38 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    id("com.android.library")
+    kotlin("android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
-    compileSdk 32
-
-    defaultConfig {
-        minSdk 21
-        targetSdk 32
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+    buildFeatures {
+        dataBinding = true
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
+    namespace = "com.yangbong.damedame.core_ui"
 }
 
 dependencies {
+    implementation(project(":shared"))
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    implementation(ThirdPartyDependencies.timber)
+
+    // Android Core
+    implementation(AndroidXDependencies.coreKtx)
+    implementation(AndroidXDependencies.appCompat)
+    implementation(AndroidXDependencies.constraintLayout)
+    implementation(AndroidXDependencies.legacy)
+    implementation(AndroidXDependencies.coroutines)
+    implementation(AndroidXDependencies.fragment)
+    coreLibraryDesugaring(AndroidXDependencies.desugarLibrary)
+
+    // Dagger-Hilt
+    implementation(AndroidXDependencies.hilt)
+    kapt(KaptDependencies.hiltCompiler)
+
+    // Material Design
+    implementation(MaterialDesignDependencies.materialDesign)
+
+    // ImageLoading Library
+    implementation(ThirdPartyDependencies.coil)
 }
