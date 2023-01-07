@@ -30,6 +30,7 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":core-ui"))
     implementation(project(":feature"))
+    implementation(project(":navigator"))
 
     implementation(KotlinDependencies.kotlin)
     implementation(KotlinDependencies.kotlinxSerialization)
