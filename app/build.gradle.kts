@@ -3,7 +3,6 @@ plugins {
     id("kotlin-parcelize")
     kotlin("android")
     kotlin("plugin.serialization") version Versions.kotlinVersion
-    id("com.google.gms.google-services")
     id("dagger.hilt.android.plugin")
     kotlin("kapt")
 }
@@ -22,6 +21,7 @@ android {
     buildFeatures {
         dataBinding = true
     }
+    namespace = "com.example.todaysweather"
 }
 
 dependencies {
