@@ -1,35 +1,25 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id("com.android.application")
+    id("kotlin-parcelize")
+    kotlin("android")
+    kotlin("plugin.serialization") version Versions.kotlinVersion
+    id("com.google.gms.google-services")
+    id("dagger.hilt.android.plugin")
+    kotlin("kapt")
 }
-
 android {
-    compileSdk 32
-
-    defaultConfig {
-        applicationId "com.example.todaysweather"
-        minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        getByName("release") {
+            isMinifyEnabled = true
+            isShrinkResources = true
+
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
     }
 }
@@ -59,7 +49,7 @@ dependencies {
 
     // Dagger-Hilt
     implementation(AndroidXDependencies.hilt)
-    annotationProcessor "com.google.dagger:hilt-android-compiler:2.28-alpha"
+    kapt(KaptDependencies.hiltCompiler)
 
     // Jetpack Navigation Component
     implementation(AndroidXDependencies.navigationFragment)
