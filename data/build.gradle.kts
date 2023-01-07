@@ -40,3 +40,6 @@ dependencies {
     implementation(ThirdPartyDependencies.gsonConverter)
 
 }
+android{
+    namespace = "com.example.todaysweather.data"
+}
