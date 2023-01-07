@@ -9,7 +9,7 @@ android {
     buildFeatures {
         dataBinding = true
     }
-    namespace = "com.yangbong.damedame.core_ui"
+    namespace = "com.example.todaysweather.core_ui"
 }
 
 dependencies {
