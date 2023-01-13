@@ -10,4 +10,8 @@ internal class MainNavigatorImpl @Inject constructor() : MainNavigator{
     override fun navigateMain(context: Context) {
         context.navigateActivity<MainActivity>()
     }
+
+    override fun transactionToHome() {
+        MainActivity.transactionToHome()
+    }
 }
