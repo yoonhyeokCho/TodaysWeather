@@ -33,6 +33,10 @@ dependencies {
     implementation(AndroidXDependencies.hilt)
     kapt(KaptDependencies.hiltCompiler)
 
+    // Jetpack Navigation Component
+    implementation(AndroidXDependencies.navigationFragment)
+    implementation(AndroidXDependencies.navigationUI)
+
     // Jetpack Fragment
     implementation(AndroidXDependencies.fragment)
 
