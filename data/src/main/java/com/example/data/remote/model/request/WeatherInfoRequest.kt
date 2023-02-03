@@ -11,11 +11,11 @@ data class WeatherInfoRequest(
     @Query("pageNo")
     var pageNo: Int,
     @Query("base_date")
-    var baseDate: String,
+    var baseDate: Int,
     @Query("base_time")
-    var baseTime: String,
+    var baseTime: Int,
     @Query("nx")
-    var nx: Int,
+    var nx: String,
     @Query("ny")
-    var ny: Int
+    var ny: String
 )

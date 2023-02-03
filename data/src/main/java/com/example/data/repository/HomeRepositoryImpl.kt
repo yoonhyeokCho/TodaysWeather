@@ -1,9 +1,7 @@
 package com.example.data.repository
 
-import android.util.Log
 import com.example.data.remote.call_adapter.NetworkState
 import com.example.data.remote.data_source.RemoteGetWeatherInfoDataSource
-import com.example.data.remote.service.GetWeatherInfoService
 import com.example.domain.entity.response.DomainWeatherInfoResponse
 import com.example.domain.repository.HomeRepository
 import timber.log.Timber
@@ -16,36 +14,18 @@ class HomeRepositoryImpl @Inject constructor(
         dataType: String,
         numOfRows: Int,
         pageNo: Int,
-        baseDate: String,
-        baseTime: String,
-        nx: Int,
-        ny: Int
+        baseDate: Int,
+        baseTime: Int,
+        nx: String,
+        ny: String
     ): Result<DomainWeatherInfoResponse> {
-        when (val response = remoteGetWeatherInfoDataSource.getWeatherInfo(
-            dataType,
-            numOfRows,
-            pageNo,
-            baseDate,
-            baseTime,
-            nx,
-            ny
-        )) {
-            is NetworkState.Success -> return Result.success(
-                DomainWeatherInfoResponse(
-                    rainType = response.body.data.rainType,
-                    humidity = response.body.data.humidity,
-                    sky = response.body.data.sky,
-                    temp = response.body.data.temp,
-                    fcstTime = response.body.data.fcstTime
-                )
+        val Remoteresponse = remoteGetWeatherInfoDataSource.getWeatherInfo(
+            dataType, numOfRows, pageNo, baseDate, baseTime, nx, ny
+        )
+        return Result.success(
+            DomainWeatherInfoResponse(
+                Domainresponse = Remoteresponse.body()!!.response
             )
-            is NetworkState.NetworkError -> Timber.d(
-                response.error
-            )
-            is NetworkState.UnknownError -> Timber.d(
-                response.t
-            )
-        }
-        return Result.failure(IllegalStateException("NetworkError or UnKnownError please check timber"))
+        )
     }
 }
