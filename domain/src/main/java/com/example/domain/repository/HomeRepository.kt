@@ -7,9 +7,9 @@ interface HomeRepository {
         dataType: String,
         numOfRows: Int,
         pageNo: Int,
-        baseDate: String,
-        baseTime: String,
-        nx: Int,
-        ny: Int
+        baseDate: Int,
+        baseTime: Int,
+        nx: String,
+        ny: String
     ): Result<DomainWeatherInfoResponse>
 }
