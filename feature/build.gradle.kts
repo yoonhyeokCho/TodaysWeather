@@ -45,4 +45,6 @@ dependencies {
 
     // dots indicator
     implementation(ThirdPartyDependencies.dotsIndicator)
+
+    implementation("com.google.android.gms:play-services-location:19.0.1")
 }
