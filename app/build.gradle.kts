@@ -94,4 +94,7 @@ dependencies {
 
     // Logger - Timber
     implementation(ThirdPartyDependencies.timber)
+
+    implementation("com.google.android.gms:play-services-location:19.0.1")
+
 }
