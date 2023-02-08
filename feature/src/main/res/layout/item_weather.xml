@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_yellow_25_dp">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="100dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/item_weather_guideline1"
+            app:layout_constraintStart_toStartOf="@id/item_weather_guideline1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/item_weather_image"
+            android:layout_width="73dp"
+            android:layout_height="82dp"
+            android:src="@drawable/sun"
+            app:layout_constraintEnd_toEndOf="@id/item_weather_guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="--시"
+            android:textAppearance="@style/ItemTimeTextStyle"
+            app:layout_constraintStart_toEndOf="@id/item_weather_guideline1"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/item_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="기온 : "
+            android:textAppearance="@style/ItemTextStyle"
+            app:layout_constraintStart_toEndOf="@id/item_weather_guideline1"
+            app:layout_constraintTop_toBottomOf="@id/item_time"/>
+
+        <TextView
+            android:id="@+id/item_wind_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="풍속 : "
+            android:textAppearance="@style/ItemTextStyle"
+            app:layout_constraintStart_toEndOf="@id/item_weather_guideline2"
+            app:layout_constraintTop_toBottomOf="@id/item_time"/>
+
+        <TextView
+            android:id="@+id/item_probability_precipitation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="강수확률 : "
+            android:textAppearance="@style/ItemTextStyle"
+            app:layout_constraintStart_toEndOf="@id/item_weather_guideline1"
+            app:layout_constraintTop_toBottomOf="@id/item_temperature"/>
+        <TextView
+            android:id="@+id/item_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="습도 : "
+            android:textAppearance="@style/ItemTextStyle"
+            app:layout_constraintStart_toEndOf="@id/item_weather_guideline2"
+            app:layout_constraintTop_toBottomOf="@id/item_wind_speed"/>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/item_weather_guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/item_weather_guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
