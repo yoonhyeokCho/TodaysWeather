@@ -20,18 +20,6 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph"/>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_nav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_bottom_nav_white_round_15_dp"
-            app:itemActiveIndicatorStyle="@null"
-            app:itemIconTint="@color/selector_bottom_nav"
-            app:itemRippleColor="@android:color/transparent"
-            app:itemTextColor="@color/selector_bottom_nav"
-            app:labelVisibilityMode="labeled"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
